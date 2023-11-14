@@ -1,0 +1,105 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+.container {
+    position: relative !important;
+    height: 100%;
+}
+#opponent {
+    position: absolute;
+    vertical-align: top;
+    top: 0;
+}
+#player {
+    position: absolute;
+    vertical-align: bottom;
+    bottom: 0;
+}
+#bet-input {
+    width: 150px;
+    display: inline;
+}
+body {
+    /*
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: end;*/
+    height: 100vh;
+    background: linear-gradient(45deg, #069E2D, #03440C);
+    padding-bottom: 25px;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #2ecc71;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+
+.card-outer-wrapper {
+    width: 135px;
+    height: 200px;
+    perspective: 800px;
+    margin: 5px;
+    transition: transform 500ms;
+}
+
+.card-inner-wrapper {
+    height: 100%;
+    width: 100%;
+    position: relative;
+    transition: transform 1500ms;
+    transform-style: preserve-3d;
+
+}
+
+.card-front,
+.card-back {
+    height: 100%;
+    width: 100%;
+    box-shadow: 0 0 5px 2px rgba(50, 50, 50, 0.25);
+    position: absolute;
+    backface-visibility: hidden;
+    border-radius: 1rem;
+}
+
+.card-front {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-image: url("./cards/back.png");
+
+}
+
+.card-back {
+    transform: rotateY(180deg);
+    /*background-image: url("./cards/SVG-cards-1.3/10_of_hearts.svg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-color: #3a3a3a;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5rem;*/
+}
+.card-back img {
+    height: 100%;
+    width: 100%;
+    border-radius: 1rem;
+}
+
+.card-outer-wrapper:enabled>.card-inner-wrapper {
+    transition-delay: 1s;
+    transform: rotateY(180deg);
+}
+
+.card-flipp {
+    transition-delay: 0.5s;
+    transform: rotateY(180deg);
+}
+.card-outer-wrapper:hover {
+    transform: scale(1.1); 
+}
